@@ -40,9 +40,10 @@ input:focus {
 }
 
 .options {
+    position: relative;
     display: flex;
     width: min-content;
-    background-color: #fff;
+    background-color: #dfd7d7;
     justify-content: center;
     justify-self: center;
     align-items: center;
@@ -52,13 +53,34 @@ input:focus {
     cursor: pointer;
 }
 
+.slider {
+    height: 45px;
+    width: 75px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    border-radius: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.slider.left {
+    transform: translateX(0);
+}
+
+.slider.right {
+    transform: translateX(70%);
+}
+
 .cel {
+    position: relative;
     padding-right: 1.5rem;
-    border-right: 1px solid #000;
+    z-index: 10;
 }
 
 .fah {
+    position: relative;
     padding-left: 1.5rem;
+    z-index: 10;
 }
 
 .current-weather {
