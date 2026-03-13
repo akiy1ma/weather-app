@@ -1,6 +1,7 @@
 import "../src/style.css"
 import { API_KEY } from "../API"
 import { switchState } from "./utility";
+import { showCurrentConditions } from "./utility";
 
 
 const options = document.querySelector(".options");
@@ -10,6 +11,7 @@ const searchBar = document.querySelector(".searchbar");
 searchBar.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         getWeather(searchBar.value);
+        searchBar.value = "";
     }
 })
 
@@ -27,6 +29,7 @@ async function getWeather(location) {
     );
     const weatherData = await responce.json();
     console.log(weatherData);
+    showCurrentConditions(weatherData.currentConditions, weatherData.address);
 }
 
 getWeather();
